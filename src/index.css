@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gradient-start: #4F46E5;
+    --gradient-end: #7C3AED;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+.prose {
+  @apply max-w-none;
+}
+
+.prose img {
+  @apply rounded-lg shadow-md;
+}
+
+.prose a {
+  @apply text-indigo-600 dark:text-indigo-400 no-underline hover:text-indigo-700 dark:hover:text-indigo-300;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-900/20 pl-4 py-2 my-4 italic;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.prose pre {
+  @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.prose h1 {
+  @apply text-3xl font-bold text-gray-900 dark:text-white mb-4 mt-6;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold text-gray-900 dark:text-white mb-3 mt-5;
+}
+
+.prose h3 {
+  @apply text-xl font-medium text-gray-900 dark:text-white mb-2 mt-4;
+}
+
+.prose ul, .prose ol {
+  @apply my-4;
+}
+
+.prose li {
+  @apply my-1;
+}
+
+.prose p {
+  @apply my-3 leading-relaxed;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ProseMirror {
+  @apply min-h-[300px] outline-none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  @apply text-gray-400 dark:text-gray-600;
+  content: attr(data-placeholder);
+  float: left;
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror:focus {
+  @apply outline-none;
+}
+
+/* Custom scrollbar */
+.ProseMirror::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ProseMirror::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.ProseMirror::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.ProseMirror::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
